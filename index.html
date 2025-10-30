@@ -207,8 +207,8 @@
 <body>
 
     <header>
-        <h1>Mapa Cultural de Armenia, Quindío 🌄</h1>
-        <p>Descubre el corazón cultural del Eje Cafetero</p>
+        <h1>Mapa Cultural de Armenia, Quindío </h1>
+        <p>Descubre los centros culturales en donde la cutura contruye y froma vida</p>
     </header>
 
     <nav>
@@ -224,7 +224,7 @@
         
         <section id="mapa" class="content-section active">
             <h2>Mapa Cultural Interactivo de Armenia</h2>
-            <p>Explora los puntos culturales de Armenia directamente en el mapa. **()**.</p>
+            <p>Explora los espacios culturales de Armenia con el mapa. </p>
 
             <div class="map-container">
                 <iframe 
@@ -239,8 +239,8 @@
         </section>
 
         <section id="informacion" class="content-section">
-            <h2>Base de Datos de Espacios Culturales📚</h2>
-            <p>Aquí puedes filtrar y buscar información específica sobre los lugares culturales.</p>
+            <h2>Base de Datos de Espacios Culturales</h2>
+            <p>Aquí puedes filtrar y buscar información específica sobre los espacios culturales que se encuentra en el Mapa, con el fin de que descubran nuevos lugares y proyectos que se gestan en Armeia .</p>
 
             <div class="notion-container">
                 <iframe src="HTTPS://fifth-spectacles-a01.notion.site/ebd/29945de2540880e4bbffe1d97228ceb0?v=29945de2540880dd9ecf000c003a5c30" width="100%" height="600" frameborder="0" allowfullscreen />
@@ -249,8 +249,9 @@
         </section>
 
         <section id="proponer" class="content-section">
-            <h2>Propone un espacio cultural</h2>
-            <p class="subtitle">Si conoces un espacio cultural y quieres compartirlo, llena este formulario :)</p>
+            <h2>La cultura se contrulle en comunidad</h2>
+            <p class="subtitle"> La ciudad de Armenia, como capital del departamentito del Quindío, reúne en sus calles diferentes centros culturales o de reunión social en donde se desarrollan diversas formas de cultura. 
+ESi conoces un espacio cultural que aún no aparece en el mapa o quieres actualizar los datos de uno existente y quieres compartirlo, llena el siguiente formulario</p>
             
             <form action="#" method="POST">
                 <fieldset>
@@ -258,10 +259,10 @@
                     <label for="nombre_espacio">Nombre del espacio *</label>
                     <input type="text" id="nombre_espacio" name="nombre_espacio" required>
 
-                    <label for="nombre_aporte">Nombre persona que hace el aporte (opcional)</label>
+                    <label for="nombre_aporte">Nombre de quien aporta (opcional)</label>
                     <input type="text" id="nombre_aporte" name="nombre_aporte">
 
-                    <label for="contacto">Info de contacto *</label>
+                    
                     <input type="text" id="contacto" name="contacto" placeholder="Correo electrónico o teléfono" required>
                 </fieldset>
 
@@ -272,30 +273,33 @@
                         <option value="">-- Selecciona un tipo --</option>
                         <option value="teatro">Teatro / Sala de espectáculos</option>
                         <option value="museo">Museo / Galería de arte</option>
-                        <option value="biblioteca">Biblioteca / Centro de lectura</option>
+                        <option value="biblioteca">Biblioteca / Librería </option>
                         <option value="casa_cultura">Casa de la Cultura / Centro Comunitario</option>
                         <option value="cafe_cultural">Café / Bar cultural</option>
+<option value="teatro"> Parque/centro deportivo </option>
+<option value="teatro"> Fundaciones / Centros de formación </option>
+
                         <option value="otro">Otro (Especificar)</option>
                     </select>
 
-                    <label for="otro_tipo">En caso de escoger "otro" ¿Cuál es?</label>
+                    <label for="otro_tipo">Si marcó "otro", por favor indique cuál.</label>
                     <input type="text" id="otro_tipo" name="otro_tipo">
 
-                    <label for="actividades">¿Qué actividades encuentras en este espacio? *</label>
+                    <label for="actividades">¿Qué tipo de actividades se ueden encontrar en este espacio? *</label>
                     <textarea id="actividades" name="actividades" required placeholder="Ej: Talleres de danza, conciertos, exposiciones, proyecciones de cine."></textarea>
                 </fieldset>
 
+
                 <fieldset>
                     <legend>Ubicación y Contacto Web</legend>
-                    <label for="redes">Redes sociales del espacio</label>
+                    <label for="contacto">Info de contacto del lugar (redes socles/ telefono)*</label>
                     <input type="text" id="redes" name="redes" placeholder="Ej: Instagram, Facebook, X">
 
                     <label for="link_maps">Link de Google Maps del espacio *</label>
                     <input type="url" id="link_maps" name="link_maps" required placeholder="Copia el enlace de Google Maps aquí">
 
-                    <label for="ruta_mio">Ruta del MIO más cercana</label>
-                    <input type="text" id="ruta_mio" name="ruta_mio">
-                </fieldset>
+              </fieldset>
+                   
 
                 <fieldset>
                     <legend>Condiciones de Ingreso y Accesibilidad</legend>
@@ -328,18 +332,23 @@
                     </div>
                 </fieldset>
 
+<fieldset>
+ <label for="actividades"> Si quieres agregar más información sobre el espacio propuesto, puedes hacerlo aquí </label>
+
+<textarea id="Informacion Adicional" name="Observaciones" required placeholder=></textarea>
+
+</fieldset>
+
                 <button type="submit">Enviar Propuesta</button>
             </form>
         </section>
 
         <section id="finalidad" class="content-section">
-            <h2>Finalidad del Mapa Cultural 🎯</h2>
-            <p>La finalidad principal de este mapa cultural es **visibilizar y promover** los diversos espacios de arte y cultura de Armenia, facilitando a ciudadanos y turistas el acceso a la información y fomentando la participación en la vida cultural de la región. Buscamos:</p>
-            <ul>
-                <li>Ser un directorio completo y actualizado.</li>
-                <li>Fomentar el turismo cultural responsable.</li>
-                <li>Conectar a artistas, gestores y público.</li>
-            </ul>
+            <h2>Finalidad del Mapa Cultural </h2>
+            <p>Para apropiarse de la cultura de la ciudad, primero hay que conocerla. Por ello, la finalidad principal de este mapa cultural es visibilizar y promover los diversos espacios y centros culturales que existen en Armenia. Este proyecto busca fomentar una forma de apropiación de la ciudad que vaya más allá de lo turístico.
+
+La cultura no falta en el Quindío, y Armenia, como su capital, concentra gran parte de las entidades culturales que impulsan la participación en la vida artística y cultural de la región. </p>
+            
         </section>
 
     </div>
