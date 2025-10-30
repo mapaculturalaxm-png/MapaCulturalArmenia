@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Cultural de Armenia, Quindío - Unificado</title>
+    
+    <style>
+        /* Variables CSS para facilitar la gestión de colores */
+        :root {
+            --color-principal: #ff7043; /* Naranja Coral - Atardecer */
+            --color-secundario: #f4511e; /* Naranja Oscuro - Atardecer profundo */
+            --color-acento: #ffc107; /* Amarillo/Dorado - Sol bajo */
+            --color-fondo: #fce4ec; /* Rosa muy claro / Fondo suave */
+            --color-texto: #333;
+            --color-claro: #ffffff;
+        }
+
+        /* 1. Estilos Globales y Base */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: var(--color-claro);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            color: var(--color-secundario);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(244, 81, 30, 0.15);
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* 2. Encabezado (Header) */
+        header {
+            background: linear-gradient(to right, #ff9800, var(--color-secundario));
+            color: var(--color-claro);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--color-acento);
+        }
+
+        header h1 {
+            color: var(--color-claro);
+            font-size: 2.5em;
+            border-bottom: none;
+        }
+
+        /* 3. Navegación (Nav) - Pestañas */
+        nav {
+            background-color: var(--color-principal);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            flex-grow: 1;
+        }
+
+        nav ul li a {
+            color: var(--color-claro);
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            cursor: pointer; /* Indica que es un elemento interactivo */
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active { /* Clase 'active' para la pestaña seleccionada */
+            background-color: var(--color-secundario);
+            border-bottom: 3px solid var(--color-acento);
+        }
+        
+        /* 4. Contenedores de las Pestañas (Secciones) */
+        .content-section {
+            padding: 20px 0;
+            margin-bottom: 30px;
+            display: none; /* Oculta todas las secciones por defecto */
+        }
+
+        .content-section.active {
+            display: block; /* Muestra solo la sección con la clase 'active' */
+        }
+
+        /* 5. Estilos Específicos: Mapas y Notion */
+        .map-container, .notion-container {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        iframe {
+            display: block;
+        }
+
+        /* 6. Estilos Específicos (Formulario) */
+        #proponer fieldset {
+            border: 1px solid var(--color-principal);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 6px;
+            background-color: #fff3e0;
+        }
+
+        #proponer legend {
+            font-weight: bold;
+            color: var(--color-secundario);
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+
+        #proponer label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--color-secundario);
+        }
+
+        #proponer input[type="text"],
+        #proponer input[type="url"],
+        #proponer select,
+        #proponer textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ffab91;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #proponer textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Estilos para Radio y Checkbox */
+        #proponer .inline-label {
+            display: inline-block;
+            font-weight: normal;
+            color: var(--color-texto);
+            margin-right: 15px;
+        }
+
+        #proponer input[type="radio"],
+        #proponer input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        #proponer .accessibility-title {
+            margin-top: 25px;
+            border-top: 1px dashed #f4511e;
+            padding-top: 15px;
+        }
+
+        #proponer button[type="submit"] {
+            background-color: var(--color-acento);
+            color: var(--color-secundario);
+            border: none;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        #proponer button[type="submit"]:hover {
+            background-color: #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mapa Cultural de Armenia, Quindío 🌄</h1>
+        <p>Descubre el corazón cultural del Eje Cafetero</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="tab-link active" data-tab="mapa">Mapa Cultural de Armenia, Quindío</a></li>
+            <li><a href="#" class="tab-link" data-tab="informacion">Más información de los espacios culturales</a></li>
+            <li><a href="#" class="tab-link" data-tab="proponer">Propone un espacio cultural</a></li>
+            <li><a href="#" class="tab-link" data-tab="finalidad">Finalidad del Mapa Cultural</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <section id="mapa" class="content-section active">
+            <h2>Mapa Cultural Interactivo de Armenia</h2>
+            <p>Explora los puntos culturales de Armenia directamente en el mapa. **()**.</p>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/d/u/0/embed?mid=1ErJTbK5wEUpIjIE9X83XwR8-YSqxqrY&ehbc=2E312F" 
+                    width="100%" 
+                    height="500" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="informacion" class="content-section">
+            <h2>Base de Datos de Espacios Culturales📚</h2>
+            <p>Aquí puedes filtrar y buscar información específica sobre los lugares culturales.</p>
+
+            <div class="notion-container">
+                <iframe src="HTTPS://fifth-spectacles-a01.notion.site/ebd/29945de2540880e4bbffe1d97228ceb0?v=29945de2540880dd9ecf000c003a5c30" width="100%" height="600" frameborder="0" allowfullscreen />
+                  </iframe>
+            </div>
+        </section>
+
+        <section id="proponer" class="content-section">
+            <h2>Propone un espacio cultural</h2>
+            <p class="subtitle">Si conoces un espacio cultural y quieres compartirlo, llena este formulario :)</p>
+            
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Información Básica</legend>
+                    <label for="nombre_espacio">Nombre del espacio *</label>
+                    <input type="text" id="nombre_espacio" name="nombre_espacio" required>
+
+                    <label for="nombre_aporte">Nombre persona que hace el aporte (opcional)</label>
+                    <input type="text" id="nombre_aporte" name="nombre_aporte">
+
+                    <label for="contacto">Info de contacto *</label>
+                    <input type="text" id="contacto" name="contacto" placeholder="Correo electrónico o teléfono" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Clasificación</legend>
+                    <label for="tipo_espacio">Tipo de espacio *</label>
+                    <select id="tipo_espacio" name="tipo_espacio" required>
+                        <option value="">-- Selecciona un tipo --</option>
+                        <option value="teatro">Teatro / Sala de espectáculos</option>
+                        <option value="museo">Museo / Galería de arte</option>
+                        <option value="biblioteca">Biblioteca / Centro de lectura</option>
+                        <option value="casa_cultura">Casa de la Cultura / Centro Comunitario</option>
+                        <option value="cafe_cultural">Café / Bar cultural</option>
+                        <option value="otro">Otro (Especificar)</option>
+                    </select>
+
+                    <label for="otro_tipo">En caso de escoger "otro" ¿Cuál es?</label>
+                    <input type="text" id="otro_tipo" name="otro_tipo">
+
+                    <label for="actividades">¿Qué actividades encuentras en este espacio? *</label>
+                    <textarea id="actividades" name="actividades" required placeholder="Ej: Talleres de danza, conciertos, exposiciones, proyecciones de cine."></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Ubicación y Contacto Web</legend>
+                    <label for="redes">Redes sociales del espacio</label>
+                    <input type="text" id="redes" name="redes" placeholder="Ej: Instagram, Facebook, X">
+
+                    <label for="link_maps">Link de Google Maps del espacio *</label>
+                    <input type="url" id="link_maps" name="link_maps" required placeholder="Copia el enlace de Google Maps aquí">
+
+                    <label for="ruta_mio">Ruta del MIO más cercana</label>
+                    <input type="text" id="ruta_mio" name="ruta_mio">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Condiciones de Ingreso y Accesibilidad</legend>
+
+                    <label>Ingreso permitido a *</label>
+                    <input type="radio" id="familia" name="ingreso" value="Toda la familia" required>
+                    <label for="familia" class="inline-label">Toda la familia</label><br>
+                    <input type="radio" id="mayores18" name="ingreso" value="Solo mayores de 18 años">
+                    <label for="mayores18" class="inline-label">Solo mayores de 18 años</label><br>
+                    <input type="checkbox" id="pet_friendly" name="caracteristicas[]" value="Pet Friendly">
+                    <label for="pet_friendly" class="inline-label">Pet Friendly</label>
+                    <br>
+                    
+                    <label class="accessibility-title">Accesibilidad *</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="acceso_ruedas" name="accesibilidad[]" value="Acceso para personas en silla de ruedas / movilidad reducida">
+                        <label for="acceso_ruedas">Acceso para personas en silla de ruedas / movilidad reducida</label><br>
+                        
+                        <input type="checkbox" id="bano_accesible" name="accesibilidad[]" value="Baño accesible">
+                        <label for="bano_accesible">Baño accesible</label><br>
+
+                        <input type="checkbox" id="info_accesible" name="accesibilidad[]" value="Información en formatos accesibles">
+                        <label for="info_accesible">Información en formatos accesibles (braille, audioguía, pictogramas)</label><br>
+
+                        <input type="checkbox" id="personal_capacitado" name="accesibilidad[]" value="Personal capacitado en atención inclusiva">
+                        <label for="personal_capacitado">Personal capacitado en atención inclusiva</label><br>
+
+                        <input type="checkbox" id="no_accesibilidad" name="accesibilidad[]" value="No cuenta con condiciones de accesibilidad">
+                        <label for="no_accesibilidad">No cuenta con condiciones de accesibilidad</label>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Enviar Propuesta</button>
+            </form>
+        </section>
+
+        <section id="finalidad" class="content-section">
+            <h2>Finalidad del Mapa Cultural 🎯</h2>
+            <p>La finalidad principal de este mapa cultural es **visibilizar y promover** los diversos espacios de arte y cultura de Armenia, facilitando a ciudadanos y turistas el acceso a la información y fomentando la participación en la vida cultural de la región. Buscamos:</p>
+            <ul>
+                <li>Ser un directorio completo y actualizado.</li>
+                <li>Fomentar el turismo cultural responsable.</li>
+                <li>Conectar a artistas, gestores y público.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-link');
+            const sections = document.querySelectorAll('.content-section');
+
+            // Función para mostrar la pestaña activa
+            function showTab(tabId) {
+                // 1. Ocultar todas las secciones
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // 2. Desactivar todos los enlaces
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+
+                // 3. Mostrar la sección seleccionada y activar el enlace
+                const activeSection = document.getElementById(tabId);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                }
+            }
+
+            // Establecer la primera pestaña como activa al cargar
+            showTab('mapa');
+
+            // Agregar un "listener" de evento a cada enlace (pestaña)
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function(e) {
+                    e.preventDefault(); // Previene que la página salte al inicio
+
+                    const tabId = this.getAttribute('data-tab');
+                    showTab(tabId);
+                    
+                    // Marcar el enlace como activo
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
